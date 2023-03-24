@@ -4,6 +4,7 @@ import type { Method, RouteMetadata } from './types';
 
 interface RouteOptions {
 	middlewares?: RequestHandler[];
+	usesTemplates?: boolean;
 }
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -19,6 +20,7 @@ const RouteFactory =
 			path,
 			middlewares: options.middlewares ?? [],
 			handlerName: String(handlerName),
+			usesTemplates: options.usesTemplates ?? false,
 		});
 		Reflect.defineMetadata(CONTROLLER_ROUTES, routes, controllerClass);
 	};

@@ -323,7 +323,7 @@ export declare namespace OAuthRequest {
 	}
 
 	namespace OAuth2Credential {
-		type Auth = OAuth1Credential.Auth;
+		type Auth = AuthenticatedRequest<{}, {}, {}, { id: string }>;
 		type Callback = AuthenticatedRequest<{}, {}, {}, { code: string; state: string }>;
 	}
 }
