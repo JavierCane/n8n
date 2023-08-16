@@ -1,6 +1,5 @@
 import type { ColumnOptions } from 'typeorm';
 import { BeforeInsert, BeforeUpdate, Column, PrimaryColumn } from 'typeorm';
-import { IsOptional } from 'class-validator';
 import config from '@/config';
 import { generateNanoId } from '../utils/generators';
 
@@ -42,14 +41,12 @@ function mixinStringId<T extends Constructor<{}>>(base: T) {
 function mixinTimestamps<T extends Constructor<{}>>(base: T) {
 	class Derived extends base {
 		@Column(tsColumnOptions)
-		@IsOptional() // ignored by validation because set at DB level
 		createdAt: Date;
 
 		@Column({
 			...tsColumnOptions,
 			onUpdate: timestampSyntax,
 		})
-		@IsOptional() // ignored by validation because set at DB level
 		updatedAt: Date;
 
 		@BeforeUpdate()
