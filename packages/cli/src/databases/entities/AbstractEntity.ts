@@ -43,10 +43,7 @@ function mixinTimestamps<T extends Constructor<{}>>(base: T) {
 		@Column(tsColumnOptions)
 		createdAt: Date;
 
-		@Column({
-			...tsColumnOptions,
-			onUpdate: timestampSyntax,
-		})
+		@Column(tsColumnOptions)
 		updatedAt: Date;
 
 		@BeforeUpdate()

@@ -20,11 +20,11 @@ const additionalColumns = {
 	workflow_statistics: ['latestEvent'],
 };
 
-export class MigrateToTimestampZ1692207852593 implements IrreversibleMigration {
+export class MigrateToTimestampTz1692207852593 implements IrreversibleMigration {
 	async up({ queryRunner, tablePrefix }: MigrationContext) {
 		const changeColumnType = async (tableName: string, columnName: string) =>
 			queryRunner.query(
-				`ALTER TABLE "${tablePrefix}${tableName}" ALTER COLUMN "${columnName}" TYPE TIMESTAMPTZ(3)`,
+				`ALTER TABLE "${tablePrefix}${tableName}" ALTER COLUMN "${columnName}" TYPE TIMESTAMP(3) WITH TIME ZONE`,
 			);
 
 		for (const tableName of tablesWithDefaultTimestamps) {
@@ -32,6 +32,7 @@ export class MigrateToTimestampZ1692207852593 implements IrreversibleMigration {
 				await changeColumnType(tableName, columnName);
 			}
 		}
+
 		for (const [tableName, columnNames] of Object.entries(additionalColumns)) {
 			for (const columnName of columnNames) {
 				await changeColumnType(tableName, columnName);
