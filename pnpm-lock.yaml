@@ -994,6 +994,9 @@ importers:
       '@kafkajs/confluent-schema-registry':
         specifier: 1.0.6
         version: 1.0.6
+      '@n8n/vm2':
+        specifier: ^3.9.19
+        version: 3.9.19
       amqplib:
         specifier: ^0.10.3
         version: 0.10.3
@@ -1162,9 +1165,6 @@ importers:
       uuid:
         specifier: ^8.3.2
         version: 8.3.2
-      vm2:
-        specifier: ^3.9.19
-        version: 3.9.19
       xlsx:
         specifier: https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz
         version: '@cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz'
@@ -4130,6 +4130,15 @@ packages:
     transitivePeerDependencies:
       - '@codemirror/view'
       - '@lezer/common'
+    dev: false
+
+  /@n8n/vm2@3.9.19:
+    resolution: {integrity: sha512-KmrkVqri7VG+GQ2JbJ2/2gyEmVkysxzoJUF+zdtqBZLU8GN9UDwAnjzUOUgpD0dCRd1SUVLqwM4GpjOeca4XZw==}
+    engines: {node: '>=18.10', pnpm: '>=8.6.12'}
+    hasBin: true
+    dependencies:
+      acorn: 8.10.0
+      acorn-walk: 8.2.0
     dev: false
 
   /@n8n_io/license-sdk@2.4.0:
@@ -7529,12 +7538,12 @@ packages:
     resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-    dev: true
 
   /acorn@8.8.1:
     resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: true
 
   /address@1.2.2:
     resolution: {integrity: sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==}
@@ -20850,7 +20859,7 @@ packages:
     engines: {node: '>=6.0'}
     hasBin: true
     dependencies:
-      acorn: 8.8.1
+      acorn: 8.10.0
       acorn-walk: 8.2.0
     dev: false
 
