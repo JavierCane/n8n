@@ -56,6 +56,10 @@ export class TestWebhooks implements IWebhookManager {
 		const httpMethod = request.method;
 		let path = request.params.path;
 
+		// Reset request parameters
+		// @ts-ignore
+		request.params = {};
+
 		// Remove trailing slash
 		if (path.endsWith('/')) {
 			path = path.slice(0, -1);

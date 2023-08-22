@@ -194,6 +194,10 @@ export class ActiveWorkflowRunner implements IWebhookManager {
 
 		Logger.debug(`Received webhook "${httpMethod}" for path "${path}"`);
 
+		// Reset request parameters
+		// @ts-ignore
+		request.params = {};
+
 		// Remove trailing slash
 		if (path.endsWith('/')) {
 			path = path.slice(0, -1);
